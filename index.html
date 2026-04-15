@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON NAJM — The Violence of Beauty</title>
+  <meta name="description" content="A new olfactory weapon. Born in the desert. For those who command attention." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- SVG grain/noise filter reused across sections -->
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0.95  0 0 0 0 0.93  0 0 0 0 0.87  0 0 0 0.12 0" />
+      </filter>
+    </defs>
+  </svg>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">MAISON&nbsp;NAJM</a>
+
+      <nav class="nav-links" aria-label="primary">
+        <a href="#collection">Collection</a>
+        <a href="#essence">Essence</a>
+        <a href="#story">Story</a>
+        <a href="#atelier">Atelier</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-rule"></div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#collection">Collection</a>
+    <a href="#essence">Essence</a>
+    <a href="#story">Story</a>
+    <a href="#atelier">Atelier</a>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+    <div class="arabic-watermark" aria-hidden="true">مشاعر قوية</div>
+
+    <div class="hero-bottle" aria-hidden="true">
+      <!-- Architectural angular perfume bottle -->
+      <svg viewBox="0 0 220 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bottleGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.9" />
+            <stop offset="50%" stop-color="#C9A84C" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#8B0000" stop-opacity="0.55" />
+          </linearGradient>
+          <linearGradient id="bottleStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#C9A84C" />
+            <stop offset="100%" stop-color="#6a5422" />
+          </linearGradient>
+        </defs>
+        <!-- cap -->
+        <rect x="86" y="10" width="48" height="34" fill="none" stroke="url(#bottleStroke)" stroke-width="1.2" />
+        <line x1="110" y1="44" x2="110" y2="62" stroke="#C9A84C" stroke-width="1" />
+        <!-- neck -->
+        <polygon points="96,62 124,62 132,92 88,92" fill="none" stroke="url(#bottleStroke)" stroke-width="1.2" />
+        <!-- body: angular hexagonal -->
+        <polygon
+          points="40,100 180,100 205,140 205,360 160,410 60,410 15,360 15,140"
+          fill="url(#bottleGrad)"
+          stroke="url(#bottleStroke)"
+          stroke-width="1.4"
+        />
+        <!-- inner facet lines -->
+        <line x1="40" y1="100" x2="60" y2="410" stroke="#C9A84C" stroke-opacity="0.35" stroke-width="0.8" />
+        <line x1="180" y1="100" x2="160" y2="410" stroke="#C9A84C" stroke-opacity="0.35" stroke-width="0.8" />
+        <line x1="110" y1="92" x2="110" y2="410" stroke="#C9A84C" stroke-opacity="0.2" stroke-width="0.6" />
+        <!-- label line -->
+        <line x1="50" y1="260" x2="170" y2="260" stroke="#C9A84C" stroke-opacity="0.6" />
+        <text x="110" y="280" text-anchor="middle" fill="#C9A84C" font-family="Cormorant Garamond" font-size="14" letter-spacing="4">NAJM</text>
+      </svg>
+    </div>
+
+    <div class="hero-copy">
+      <h1 class="hero-headline">
+        <span class="line-1">The Violence</span>
+        <span class="line-2">of Beauty</span>
+      </h1>
+      <p class="hero-subline">
+        A new olfactory weapon. Born in the desert.<br />
+        For those who command attention.
+      </p>
+      <a href="#collection" class="cta-btn">
+        <span>Discover the Collection</span>
+      </a>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>OUD &nbsp;·&nbsp; SAFFRON &nbsp;·&nbsp; BLACK AMBER &nbsp;·&nbsp; SMOKED ROSE &nbsp;·&nbsp; AGARWOOD &nbsp;·&nbsp; LIQUID GOLD &nbsp;·&nbsp;</span>
+      <span>OUD &nbsp;·&nbsp; SAFFRON &nbsp;·&nbsp; BLACK AMBER &nbsp;·&nbsp; SMOKED ROSE &nbsp;·&nbsp; AGARWOOD &nbsp;·&nbsp; LIQUID GOLD &nbsp;·&nbsp;</span>
+      <span>OUD &nbsp;·&nbsp; SAFFRON &nbsp;·&nbsp; BLACK AMBER &nbsp;·&nbsp; SMOKED ROSE &nbsp;·&nbsp; AGARWOOD &nbsp;·&nbsp; LIQUID GOLD &nbsp;·&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============ COLLECTION ============ -->
+  <section class="collection" id="collection">
+    <div class="section-head reveal">
+      <span class="eyebrow">THE COLLECTION</span>
+      <h2>Three Declarations</h2>
+    </div>
+
+    <div class="cards">
+      <!-- Card 1: IGNITION (gold) -->
+      <article class="card reveal" data-glow="gold">
+        <div class="card-bottle">
+          <div class="glow"></div>
+          <svg viewBox="0 0 160 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#3a2b08" stop-opacity="0.6" />
+              </linearGradient>
+            </defs>
+            <rect x="64" y="6" width="32" height="24" fill="none" stroke="#C9A84C" />
+            <polygon points="72,44 88,44 96,70 64,70" fill="none" stroke="#C9A84C" />
+            <polygon points="20,78 140,78 155,115 155,290 120,315 40,315 5,290 5,115" fill="url(#g1)" stroke="#C9A84C" stroke-width="1.2" />
+            <line x1="30" y1="200" x2="130" y2="200" stroke="#C9A84C" stroke-opacity="0.6" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3>Ignition</h3>
+          <p class="descriptor">— a spark that refuses to be extinguished</p>
+          <p class="price">AED 1,450 · 100ml</p>
+        </div>
+      </article>
+
+      <!-- Card 2: OBSIDIAN NOIR (indigo) -->
+      <article class="card reveal" data-glow="indigo">
+        <div class="card-bottle">
+          <div class="glow"></div>
+          <svg viewBox="0 0 160 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2a1f50" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#05000f" stop-opacity="0.9" />
+              </linearGradient>
+            </defs>
+            <rect x="64" y="6" width="32" height="24" fill="none" stroke="#C9A84C" />
+            <polygon points="72,44 88,44 96,70 64,70" fill="none" stroke="#C9A84C" />
+            <polygon points="10,80 150,80 150,300 110,315 50,315 10,300" fill="url(#g2)" stroke="#C9A84C" stroke-width="1.2" />
+            <line x1="30" y1="200" x2="130" y2="200" stroke="#C9A84C" stroke-opacity="0.6" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3>Obsidian Noir</h3>
+          <p class="descriptor">— the silence before the judgment</p>
+          <p class="price">AED 1,780 · 100ml</p>
+        </div>
+      </article>
+
+      <!-- Card 3: DESERT STORM (red) -->
+      <article class="card reveal" data-glow="red">
+        <div class="card-bottle">
+          <div class="glow"></div>
+          <svg viewBox="0 0 160 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8B0000" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#1a0000" stop-opacity="0.9" />
+              </linearGradient>
+            </defs>
+            <rect x="64" y="6" width="32" height="24" fill="none" stroke="#C9A84C" />
+            <polygon points="72,44 88,44 96,70 64,70" fill="none" stroke="#C9A84C" />
+            <polygon points="25,78 135,78 155,140 120,315 40,315 5,140" fill="url(#g3)" stroke="#C9A84C" stroke-width="1.2" />
+            <line x1="30" y1="200" x2="130" y2="200" stroke="#C9A84C" stroke-opacity="0.6" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3>Desert Storm</h3>
+          <p class="descriptor">— the wind that rewrites the map</p>
+          <p class="price">AED 2,100 · 100ml</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ STATEMENT ============ -->
+  <section class="statement" id="essence">
+    <svg class="ornament ornament-left" viewBox="0 0 80 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="40" y1="0" x2="40" y2="60" stroke="#C9A84C" stroke-width="0.8" />
+      <polygon points="40,60 60,80 40,100 20,80" fill="none" stroke="#C9A84C" stroke-width="0.8" />
+      <line x1="40" y1="100" x2="40" y2="160" stroke="#C9A84C" stroke-width="0.8" />
+      <circle cx="40" cy="80" r="2" fill="#C9A84C" />
+    </svg>
+    <svg class="ornament ornament-right" viewBox="0 0 80 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="40" y1="0" x2="40" y2="60" stroke="#C9A84C" stroke-width="0.8" />
+      <polygon points="40,60 60,80 40,100 20,80" fill="none" stroke="#C9A84C" stroke-width="0.8" />
+      <line x1="40" y1="100" x2="40" y2="160" stroke="#C9A84C" stroke-width="0.8" />
+      <circle cx="40" cy="80" r="2" fill="#C9A84C" />
+    </svg>
+
+    <blockquote class="pull-quote reveal">
+      <p>
+        <em>Perfume is not worn.</em><br />
+        It is unleashed.
+      </p>
+      <cite>— House of Najm, Dubai</cite>
+    </blockquote>
+  </section>
+
+  <!-- ============ BRAND DNA ============ -->
+  <section class="story" id="story">
+    <div class="section-head reveal">
+      <span class="eyebrow">BRAND DNA</span>
+      <h2>Origin · Craft · Intention</h2>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar reveal">
+        <span class="pillar-num">01</span>
+        <h3>Origin</h3>
+        <p>
+          Born in the quiet fury of the Empty Quarter. We source oud from vaults,
+          not forests. Each note carries a passport, a lineage, a debt.
+        </p>
+      </article>
+
+      <article class="pillar reveal">
+        <span class="pillar-num">02</span>
+        <h3>Craft</h3>
+        <p>
+          Twelve years of maceration. Nine perfumers. One bottle. We do not
+          iterate. We wait. Then we release what cannot be argued with.
+        </p>
+      </article>
+
+      <article class="pillar reveal">
+        <span class="pillar-num">03</span>
+        <h3>Intention</h3>
+        <p>
+          A fragrance is a verdict. Wear ours and the room will understand,
+          before a word is spoken, precisely who has arrived, and why.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER / ATELIER ============ -->
+  <section class="atelier" id="atelier">
+    <div class="atelier-inner reveal">
+      <span class="eyebrow">ATELIER</span>
+      <h2>Enter the Inner Circle</h2>
+      <p class="atelier-sub">
+        For those worthy of exclusive access.<br />
+        Dubai · Riyadh · Doha.
+      </p>
+
+      <form class="subscribe" onsubmit="event.preventDefault(); this.querySelector('input').value='Thank you.';">
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" placeholder="your@private.email" required />
+        <button type="submit" aria-label="Submit">
+          <svg viewBox="0 0 40 14" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="7" x2="36" y2="7" stroke="#C9A84C" stroke-width="1" />
+            <polyline points="28,1 38,7 28,13" fill="none" stroke="#C9A84C" stroke-width="1" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-brand">MAISON&nbsp;NAJM</span>
+      <div class="footer-copy">© 2026 Maison Najm · All rights reserved · Made in Dubai</div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="#" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3a9 9 0 00-7.6 13.8L3 21l4.4-1.3A9 9 0 1012 3z" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <path d="M8.5 8.5c.3 2 1.5 4 3.5 5.5 1.3 1 2.8 1.4 3.5 1.2.4-.1.7-.5.7-.9v-1l-1.8-.7-.7.9c-1-.5-1.9-1.3-2.4-2.3l.9-.7-.7-1.8h-1c-.4 0-.8.3-.9.7z" fill="currentColor" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
