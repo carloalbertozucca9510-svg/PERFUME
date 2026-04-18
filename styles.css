@@ -1,5 +1,5 @@
 /* =========================================================
-   MAISON NAJM — The Power of Beauty
+   MAISON NAJM — The Scent of Beauty
    ========================================================= */
 
 :root {
@@ -205,14 +205,22 @@ img, svg { display: block; max-width: 100%; }
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 700px;
+  min-height: 680px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* text content padded away from bottom where bottle sits */
-  padding: 0 24px clamp(220px, 38vh, 420px);
+  /*
+   * top:  clears the fixed nav (~80px) + generous breathing room
+   * bottom: reserves space for the absolutely-positioned bottle
+   * These two paddings shift the flex-center point so text lands
+   * in the upper-middle of the viewport — never clipped by nav.
+   */
+  padding:
+    clamp(100px, 12vh, 140px)
+    clamp(20px, 4vw, 60px)
+    clamp(180px, 28vh, 300px);
   background:
     radial-gradient(ellipse at 50% 30%, rgba(13,0,32,0.75) 0%, var(--bg) 65%),
     var(--bg);
@@ -275,8 +283,8 @@ img, svg { display: block; max-width: 100%; }
   font-weight: 300;
   color: var(--white);
   text-transform: uppercase;
-  line-height: 0.9;
-  margin-bottom: 44px;
+  line-height: 1.0;
+  margin-bottom: 36px;
 }
 .hero-headline .line-1,
 .hero-headline .line-2 {
@@ -287,13 +295,15 @@ img, svg { display: block; max-width: 100%; }
   text-shadow: 0 0 80px rgba(0,0,0,0.9), 0 4px 40px rgba(0,0,0,0.8);
 }
 .hero-headline .line-1 {
-  font-size: clamp(68px, 13vw, 152px);
+  /* Scaled down from 152px to 96px max — still monumental, never clipped */
+  font-size: clamp(50px, 7.5vw, 96px);
   letter-spacing: 0.35em;
   animation-delay: 0.2s;
 }
 .hero-headline .line-2 {
-  font-size: clamp(52px, 10vw, 118px);
-  letter-spacing: 0.4em;
+  /* Proportionally smaller than line-1 */
+  font-size: clamp(42px, 6vw, 78px);
+  letter-spacing: 0.42em;
   animation-delay: 0.5s;
   font-style: italic;
   color: var(--gold);
@@ -309,7 +319,7 @@ img, svg { display: block; max-width: 100%; }
   text-transform: uppercase;
   color: var(--text);
   line-height: 2.2;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
   opacity: 0;
   animation: fadeUp 1.4s 1s cubic-bezier(.2,.8,.2,1) forwards;
   text-shadow: 0 2px 20px rgba(0,0,0,0.9);
@@ -765,11 +775,12 @@ img, svg { display: block; max-width: 100%; }
   .hamburger { display: flex; }
 
   .hero {
-    padding-bottom: clamp(180px, 32vh, 300px);
+    padding-top: clamp(90px, 13vh, 120px);
+    padding-bottom: clamp(160px, 28vh, 240px);
     min-height: 100dvh;
   }
-  .hero-headline .line-1 { letter-spacing: 0.2em; }
-  .hero-headline .line-2 { letter-spacing: 0.22em; }
+  .hero-headline .line-1 { letter-spacing: 0.18em; }
+  .hero-headline .line-2 { letter-spacing: 0.2em; }
   .hero-subline br { display: none; }
   .ornament { display: none; }
 
