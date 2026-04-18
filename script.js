@@ -94,24 +94,6 @@
     });
   }
 
-  /* ---------- PARALLAX HERO BOTTLE & WATERMARK ---------- */
-  const heroBottle = document.querySelector('.hero-bottle');
-  const watermark = document.querySelector('.arabic-watermark');
-  const heroCopy = document.querySelector('.hero-copy');
-
-  if (!prefersReducedMotion) {
-    window.addEventListener(
-      'scroll',
-      () => {
-        const y = window.scrollY;
-        if (y > window.innerHeight) return;
-        if (heroBottle) heroBottle.style.transform = `translate(-50%, calc(-50% + ${y * 0.18}px))`;
-        if (watermark) watermark.style.transform = `translate(-50%, calc(-50% + ${y * 0.08}px))`;
-        if (heroCopy) heroCopy.style.transform = `translateY(${y * 0.28}px)`;
-      },
-      { passive: true }
-    );
-  }
 
   /* ---------- HERO CANVAS: GOLD PARTICLES + BURSTS ---------- */
   const canvas = document.getElementById('heroCanvas');
