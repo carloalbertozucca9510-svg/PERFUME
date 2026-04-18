@@ -205,22 +205,18 @@ img, svg { display: block; max-width: 100%; }
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 680px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   /*
-   * top:  clears the fixed nav (~80px) + generous breathing room
-   * bottom: reserves space for the absolutely-positioned bottle
-   * These two paddings shift the flex-center point so text lands
-   * in the upper-middle of the viewport — never clipped by nav.
+   * top 90px  = fixed nav height (~80px) + 10px buffer
+   * bottom 200px = visual clearance for the anchored bottle
+   * justify-content:center then centers the text block inside
+   * the remaining (100vh - 90px - 200px) zone — never clips.
    */
-  padding:
-    clamp(100px, 12vh, 140px)
-    clamp(20px, 4vw, 60px)
-    clamp(180px, 28vh, 300px);
+  padding: 90px 40px 200px;
   background:
     radial-gradient(ellipse at 50% 30%, rgba(13,0,32,0.75) 0%, var(--bg) 65%),
     var(--bg);
@@ -283,28 +279,38 @@ img, svg { display: block; max-width: 100%; }
   font-weight: 300;
   color: var(--white);
   text-transform: uppercase;
-  line-height: 1.0;
-  margin-bottom: 36px;
+  line-height: 1.1;
+  margin-bottom: 32px;
 }
+/* All three lines share the same entrance animation */
 .hero-headline .line-1,
-.hero-headline .line-2 {
+.hero-headline .line-2,
+.hero-headline .line-3 {
   display: block;
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(40px);
   animation: lineIn 1.4s cubic-bezier(.2,.8,.2,1) forwards;
   text-shadow: 0 0 80px rgba(0,0,0,0.9), 0 4px 40px rgba(0,0,0,0.8);
 }
+/* "THE" — restrained, wide-tracked preface */
 .hero-headline .line-1 {
-  /* Scaled down from 152px to 96px max — still monumental, never clipped */
-  font-size: clamp(50px, 7.5vw, 96px);
-  letter-spacing: 0.35em;
-  animation-delay: 0.2s;
+  font-size: 64px;
+  letter-spacing: 0.6em;
+  animation-delay: 0.15s;
+  color: rgba(240,237,230,0.8);
 }
+/* "SCENT" — the centrepiece, largest, white */
 .hero-headline .line-2 {
-  /* Proportionally smaller than line-1 */
-  font-size: clamp(42px, 6vw, 78px);
-  letter-spacing: 0.42em;
-  animation-delay: 0.5s;
+  font-size: 88px;
+  letter-spacing: 0.38em;
+  animation-delay: 0.35s;
+  color: var(--white);
+}
+/* "OF BEAUTY" — gold italic payoff, slightly smaller */
+.hero-headline .line-3 {
+  font-size: 72px;
+  letter-spacing: 0.44em;
+  animation-delay: 0.55s;
   font-style: italic;
   color: var(--gold);
 }
@@ -319,7 +325,7 @@ img, svg { display: block; max-width: 100%; }
   text-transform: uppercase;
   color: var(--text);
   line-height: 2.2;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   opacity: 0;
   animation: fadeUp 1.4s 1s cubic-bezier(.2,.8,.2,1) forwards;
   text-shadow: 0 2px 20px rgba(0,0,0,0.9);
@@ -775,12 +781,11 @@ img, svg { display: block; max-width: 100%; }
   .hamburger { display: flex; }
 
   .hero {
-    padding-top: clamp(90px, 13vh, 120px);
-    padding-bottom: clamp(160px, 28vh, 240px);
-    min-height: 100dvh;
+    padding: 80px 20px 180px;
   }
-  .hero-headline .line-1 { letter-spacing: 0.18em; }
-  .hero-headline .line-2 { letter-spacing: 0.2em; }
+  .hero-headline .line-1 { font-size: 38px; letter-spacing: 0.45em; }
+  .hero-headline .line-2 { font-size: 52px; letter-spacing: 0.25em; }
+  .hero-headline .line-3 { font-size: 42px; letter-spacing: 0.28em; }
   .hero-subline br { display: none; }
   .ornament { display: none; }
 
