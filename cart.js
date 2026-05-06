@@ -1,15 +1,13 @@
 /* =========================================================
-   MAISON NAJM — Cart (localStorage-backed, vanilla JS)
+   OUD ROYALE FIRENZE — Cart (localStorage-backed)
    ========================================================= */
 const Cart = (() => {
   'use strict';
 
-  const KEY = 'najm_cart';
+  const KEY = 'orf_cart';
 
   const PRODUCTS = {
-    'ignition':     { id: 'ignition',     name: 'Ignition',      price: 590, image: 'ignition.jpg' },
-    'obsidian-noir':{ id: 'obsidian-noir', name: 'Obsidian Noir', price: 650, image: 'obsidian-noir.jpg' },
-    'desert-storm': { id: 'desert-storm',  name: 'Desert Storm',  price: 840, image: 'desert-storm.jpg' },
+    'oud-royale': { id: 'oud-royale', name: 'Oud Royale Firenze', price: 790, image: '' },
   };
 
   function items() {
@@ -88,19 +86,22 @@ const Cart = (() => {
       var r = list[i];
       var p = PRODUCTS[r.id];
       if (!p) continue;
+      var imgHtml = p.image
+        ? '<img src="' + p.image + '" alt="' + p.name + '" />'
+        : '<div class="cart-item-swatch"></div>';
       html +=
         '<div class="cart-item">' +
-          '<img src="' + p.image + '" alt="' + p.name + '" />' +
+          imgHtml +
           '<div class="cart-item-info">' +
             '<h4>' + p.name + '</h4>' +
             '<div class="cart-item-qty">' +
-              '<button data-action="dec" data-id="' + p.id + '">\u2212</button>' +
+              '<button data-action="dec" data-id="' + p.id + '">−</button>' +
               '<span>' + r.qty + '</span>' +
               '<button data-action="inc" data-id="' + p.id + '">+</button>' +
             '</div>' +
             '<p class="cart-item-price">AED ' + (p.price * r.qty).toLocaleString() + '</p>' +
           '</div>' +
-          '<button class="cart-item-remove" data-action="remove" data-id="' + p.id + '" aria-label="Remove">\u00d7</button>' +
+          '<button class="cart-item-remove" data-action="remove" data-id="' + p.id + '" aria-label="Remove">×</button>' +
         '</div>';
     }
     container.innerHTML = html;
@@ -159,31 +160,17 @@ const Cart = (() => {
       });
     }
 
-    /* Product-page quantity selector */
-    var qtyVal = document.getElementById('qtyValue');
-    var incBtn = document.getElementById('qtyInc');
-    var decBtn = document.getElementById('qtyDec');
-    if (qtyVal && incBtn && decBtn) {
-      incBtn.addEventListener('click', function() {
-        qtyVal.textContent = Math.min(10, parseInt(qtyVal.textContent) + 1);
-      });
-      decBtn.addEventListener('click', function() {
-        qtyVal.textContent = Math.max(1, parseInt(qtyVal.textContent) - 1);
-      });
-    }
-
-    /* Add to Cart button on product pages */
     var atcBtn = document.querySelector('.add-to-cart');
     if (atcBtn) {
       atcBtn.addEventListener('click', function() {
         var id = this.dataset.product;
-        var qty = parseInt((qtyVal && qtyVal.textContent) || '1');
-        addItem(id, qty);
+        addItem(id, 1);
+        var origText = this.textContent;
         this.textContent = 'ADDED';
         this.classList.add('added');
         var self = this;
         setTimeout(function() {
-          self.textContent = 'ADD TO CART';
+          self.textContent = origText;
           self.classList.remove('added');
         }, 1600);
         open();
