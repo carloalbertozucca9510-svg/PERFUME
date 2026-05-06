@@ -1,13 +1,10 @@
-/* =========================================================
-   OUD ROYALE FIRENZE — Cart (localStorage-backed)
-   ========================================================= */
 const Cart = (() => {
   'use strict';
 
-  const KEY = 'orf_cart';
+  const KEY = 'vistoria_cart';
 
   const PRODUCTS = {
-    'oud-royale': { id: 'oud-royale', name: 'Oud Royale Firenze', price: 790, image: '' },
+    'femme': { id: 'femme', name: 'FEMME by VISTORIA', price: 790, image: '' },
   };
 
   function items() {
@@ -19,8 +16,8 @@ const Cart = (() => {
 
   function addItem(id, qty) {
     qty = qty || 1;
-    const cart = items();
-    const row = cart.find(r => r.id === id);
+    var cart = items();
+    var row = cart.find(function(r) { return r.id === id; });
     if (row) row.qty += qty;
     else cart.push({ id: id, qty: qty });
     save(cart);
@@ -28,8 +25,8 @@ const Cart = (() => {
   }
 
   function changeQty(id, delta) {
-    const cart = items();
-    const row = cart.find(r => r.id === id);
+    var cart = items();
+    var row = cart.find(function(r) { return r.id === id; });
     if (!row) return;
     row.qty += delta;
     if (row.qty < 1) cart.splice(cart.indexOf(row), 1);
@@ -38,7 +35,7 @@ const Cart = (() => {
   }
 
   function removeItem(id) {
-    save(items().filter(r => r.id !== id));
+    save(items().filter(function(r) { return r.id !== id; }));
     refresh();
   }
 
@@ -50,8 +47,6 @@ const Cart = (() => {
       return s + (p ? p.price * r.qty : 0);
     }, 0);
   }
-
-  /* ---- UI ---- */
 
   function refresh() {
     updateBadge();
@@ -110,7 +105,7 @@ const Cart = (() => {
     if (totalEl) totalEl.textContent = 'AED ' + total().toLocaleString();
   }
 
-  function open()  {
+  function open() {
     var d = document.getElementById('cartDrawer');
     var o = document.getElementById('cartOverlay');
     if (d) d.classList.add('open');
@@ -123,8 +118,6 @@ const Cart = (() => {
     if (d) d.classList.remove('open');
     if (o) o.classList.remove('open');
   }
-
-  /* ---- Init ---- */
 
   function init() {
     var toggle = document.getElementById('cartToggle');

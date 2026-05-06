@@ -1,10 +1,7 @@
-/* =========================================================
-   OUD ROYALE FIRENZE — interactive layer
-   ========================================================= */
 (() => {
   'use strict';
 
-  /* ---------- NAV SCROLL STATE ---------- */
+  /* ---------- NAV SCROLL ---------- */
   const nav = document.getElementById('nav');
   const onScroll = () => {
     if (window.scrollY > 40) nav.classList.add('scrolled');
@@ -45,7 +42,7 @@
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
     revealEls.forEach((el) => io.observe(el));
   } else {

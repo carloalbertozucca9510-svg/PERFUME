@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OUD ROYALE FIRENZE</title>
-  <meta name="description" content="Where ancient oud meets Italian precision. A bold fragrance for those who refuse to blend in." />
+  <title>FEMME — VISTORIA</title>
+  <meta name="description" content="FEMME. Where ancient Arabia meets the ateliers of Florence." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,7 +16,7 @@
   <!-- ===== NAVIGATION ===== -->
   <header class="site-nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-brand">OUD ROYALE FIRENZE</a>
+      <a href="#" class="nav-brand">VISTORIA</a>
       <div class="nav-right">
         <nav class="nav-links">
           <a href="#fragrance">Fragrance</a>
@@ -24,7 +24,7 @@
           <a href="#reserve">Reserve</a>
         </nav>
         <button class="cart-toggle" id="cartToggle" aria-label="Cart">
-          <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="9" cy="20" r="1.3" fill="currentColor"/><circle cx="18" cy="20" r="1.3" fill="currentColor"/><path d="M2 2h3l1 4" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="9" cy="20" r="1" fill="currentColor"/><circle cx="18" cy="20" r="1" fill="currentColor"/><path d="M2 2h3l1 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
           <span class="cart-badge" id="cartBadge" style="display:none"></span>
         </button>
         <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
@@ -42,93 +42,145 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="top">
-    <div class="hero-content">
-      <h1 class="hero-title">
-        <span class="hero-word coral">Oud</span>
-        <span class="hero-word turquoise">Royale</span>
-        <span class="hero-word coral">Firenze</span>
-      </h1>
-
-      <div class="hero-bottle" aria-hidden="true">
-        <svg viewBox="0 0 200 480" xmlns="http://www.w3.org/2000/svg">
+    <div class="hero-inner">
+      <div class="hero-bottle">
+        <svg viewBox="0 0 340 440" xmlns="http://www.w3.org/2000/svg" aria-label="FEMME by VISTORIA bottle">
           <defs>
-            <linearGradient id="bGrad" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id="bodyGrad" x1="0" y1="1" x2="0" y2="0">
               <stop offset="0%" stop-color="#FF6A3D"/>
+              <stop offset="30%" stop-color="#E07A55"/>
+              <stop offset="60%" stop-color="#6DC0B3"/>
               <stop offset="100%" stop-color="#2ED3C6"/>
             </linearGradient>
+            <linearGradient id="glHL" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.30)"/>
+              <stop offset="35%" stop-color="rgba(255,255,255,0.10)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+            </linearGradient>
+            <linearGradient id="glSH" x1="1" y1="0" x2="0" y2="0">
+              <stop offset="0%" stop-color="rgba(0,0,0,0.18)"/>
+              <stop offset="35%" stop-color="rgba(0,0,0,0.06)"/>
+              <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+            </linearGradient>
+            <linearGradient id="capG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#222"/>
+              <stop offset="100%" stop-color="#0A0A0A"/>
+            </linearGradient>
+            <linearGradient id="spec" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+              <stop offset="50%" stop-color="rgba(255,255,255,0.20)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+            </linearGradient>
+            <linearGradient id="neckG" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#5BC4B5"/>
+              <stop offset="100%" stop-color="#2ED3C6"/>
+            </linearGradient>
+            <linearGradient id="shoulderHL" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0.14)"/>
+            </linearGradient>
           </defs>
-          <path d="M94,8 Q100,0 106,8 L108,30 L92,30 Z" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3"/>
-          <rect x="84" y="30" width="32" height="28" rx="2" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3.5"/>
-          <rect x="80" y="58" width="40" height="10" rx="2" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3"/>
-          <path d="M88,68 L88,108 L112,108 L112,68" fill="url(#bGrad)" stroke="#0A0A0A" stroke-width="3"/>
-          <path d="M88,108 Q60,118 48,148 L48,158 L152,158 L152,148 Q140,118 112,108" fill="url(#bGrad)" stroke="#0A0A0A" stroke-width="3.5"/>
-          <path d="M48,158 Q44,218 46,278 Q48,308 44,348 Q42,398 50,428 L150,428 Q158,398 156,348 Q152,308 154,278 Q156,218 152,158" fill="url(#bGrad)" stroke="#0A0A0A" stroke-width="3.5"/>
-          <path d="M50,428 Q48,438 46,446 L154,446 Q152,438 150,428" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3.5"/>
-          <rect x="66" y="266" width="68" height="48" fill="rgba(244,247,247,0.15)" stroke="#0A0A0A" stroke-width="2.5"/>
-          <text x="100" y="286" text-anchor="middle" font-family="'Playfair Display',serif" font-size="8.5" fill="#0A0A0A" font-weight="700" letter-spacing="1">OUD ROYALE</text>
-          <text x="100" y="302" text-anchor="middle" font-family="'Playfair Display',serif" font-size="7" fill="#0A0A0A" font-weight="700" letter-spacing="2.5">FIRENZE</text>
+
+          <!-- Ground shadow -->
+          <ellipse cx="170" cy="410" rx="108" ry="8" fill="rgba(10,10,10,0.05)"/>
+
+          <!-- Body -->
+          <rect x="50" y="130" width="240" height="268" fill="url(#bodyGrad)" stroke="#0A0A0A" stroke-width="3"/>
+          <!-- Glass left highlight -->
+          <rect x="53" y="133" width="75" height="262" fill="url(#glHL)"/>
+          <!-- Glass right shadow -->
+          <rect x="212" y="133" width="75" height="262" fill="url(#glSH)"/>
+          <!-- Specular line -->
+          <rect x="82" y="138" width="7" height="254" fill="url(#spec)"/>
+          <!-- Second subtle specular -->
+          <rect x="100" y="138" width="3" height="254" fill="rgba(255,255,255,0.06)"/>
+          <!-- Horizontal refraction bands -->
+          <rect x="53" y="255" width="234" height="1.5" fill="rgba(255,255,255,0.10)"/>
+          <rect x="53" y="257" width="234" height="0.5" fill="rgba(0,0,0,0.04)"/>
+          <rect x="53" y="200" width="234" height="0.5" fill="rgba(255,255,255,0.06)"/>
+          <!-- Left edge bevel -->
+          <line x1="52" y1="133" x2="52" y2="395" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+          <!-- Right inner edge -->
+          <line x1="288" y1="133" x2="288" y2="395" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+          <!-- Bottom inner reflection -->
+          <rect x="53" y="375" width="234" height="20" fill="rgba(255,255,255,0.04)"/>
+
+          <!-- Shoulders -->
+          <path d="M130,105 L50,130 L290,130 L210,105" fill="url(#bodyGrad)" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="miter"/>
+          <path d="M132,108 L54,129 L145,129 Z" fill="url(#shoulderHL)"/>
+          <path d="M208,108 L286,129 L195,129 Z" fill="rgba(0,0,0,0.06)"/>
+
+          <!-- Neck -->
+          <rect x="130" y="80" width="80" height="25" fill="url(#neckG)" stroke="#0A0A0A" stroke-width="3"/>
+          <rect x="133" y="83" width="22" height="19" fill="rgba(255,255,255,0.18)"/>
+          <line x1="133" y1="83" x2="133" y2="102" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+
+          <!-- Cap -->
+          <rect x="75" y="30" width="190" height="50" fill="url(#capG)" stroke="#0A0A0A" stroke-width="3"/>
+          <rect x="78" y="33" width="184" height="14" fill="rgba(255,255,255,0.06)"/>
+          <line x1="78" y1="33" x2="78" y2="77" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <!-- Cap bottom edge -->
+          <line x1="78" y1="77" x2="262" y2="77" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+
+          <!-- Base -->
+          <rect x="46" y="398" width="248" height="10" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3"/>
+          <!-- Base top edge highlight -->
+          <line x1="50" y1="398" x2="290" y2="398" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+
+          <!-- Label -->
+          <line x1="118" y1="282" x2="222" y2="282" stroke="rgba(10,10,10,0.10)" stroke-width="0.5"/>
+          <text x="170" y="302" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="14" fill="rgba(10,10,10,0.60)" font-weight="500" letter-spacing="5">FEMME</text>
+          <line x1="143" y1="310" x2="197" y2="310" stroke="rgba(10,10,10,0.06)" stroke-width="0.5"/>
+          <text x="170" y="326" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="9" fill="rgba(10,10,10,0.40)" font-weight="400" letter-spacing="3.5">VISTORIA</text>
+          <line x1="118" y1="338" x2="222" y2="338" stroke="rgba(10,10,10,0.10)" stroke-width="0.5"/>
         </svg>
       </div>
 
-      <a href="#fragrance" class="btn btn-coral">Discover</a>
+      <div class="hero-text">
+        <h1>
+          <span class="hero-femme">FEMME</span>
+          <span class="hero-by">BY VISTORIA</span>
+        </h1>
+        <p class="hero-tagline">Where ancient Arabia meets the ateliers of Florence.</p>
+        <a href="#fragrance" class="btn-primary">Discover the Fragrance</a>
+      </div>
     </div>
   </section>
 
   <!-- ===== FRAGRANCE ===== -->
   <section class="fragrance" id="fragrance">
-    <div class="fragrance-layout">
-      <div class="fragrance-visual">
-        <svg viewBox="0 0 200 480" xmlns="http://www.w3.org/2000/svg" class="bottle-large">
-          <defs>
-            <linearGradient id="bGrad2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#FF6A3D"/>
-              <stop offset="100%" stop-color="#2ED3C6"/>
-            </linearGradient>
-          </defs>
-          <path d="M94,8 Q100,0 106,8 L108,30 L92,30 Z" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3"/>
-          <rect x="84" y="30" width="32" height="28" rx="2" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3.5"/>
-          <rect x="80" y="58" width="40" height="10" rx="2" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3"/>
-          <path d="M88,68 L88,108 L112,108 L112,68" fill="url(#bGrad2)" stroke="#0A0A0A" stroke-width="3"/>
-          <path d="M88,108 Q60,118 48,148 L48,158 L152,158 L152,148 Q140,118 112,108" fill="url(#bGrad2)" stroke="#0A0A0A" stroke-width="3.5"/>
-          <path d="M48,158 Q44,218 46,278 Q48,308 44,348 Q42,398 50,428 L150,428 Q158,398 156,348 Q152,308 154,278 Q156,218 152,158" fill="url(#bGrad2)" stroke="#0A0A0A" stroke-width="3.5"/>
-          <path d="M50,428 Q48,438 46,446 L154,446 Q152,438 150,428" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3.5"/>
-          <rect x="66" y="266" width="68" height="48" fill="rgba(244,247,247,0.15)" stroke="#0A0A0A" stroke-width="2.5"/>
-          <text x="100" y="286" text-anchor="middle" font-family="'Playfair Display',serif" font-size="8.5" fill="#0A0A0A" font-weight="700" letter-spacing="1">OUD ROYALE</text>
-          <text x="100" y="302" text-anchor="middle" font-family="'Playfair Display',serif" font-size="7" fill="#0A0A0A" font-weight="700" letter-spacing="2.5">FIRENZE</text>
-        </svg>
-      </div>
+    <div class="fragrance-inner">
+      <h2 class="fragrance-headline reveal">
+        <span>Not a scent.</span>
+        <span>A statement.</span>
+      </h2>
 
-      <div class="fragrance-info">
-        <span class="section-label">THE FRAGRANCE</span>
-        <h2>Not a scent.<br/>A statement.</h2>
-        <p class="fragrance-desc">
-          Oud Royale Firenze opens with a shock of saffron and bergamot that refuses to
-          whisper. At its heart, Bulgarian rose and oud resin collide in an accord that
-          belongs to neither East nor West. The base lingers — agarwood, amber, and
-          white musk — like a conversation you can't walk away from.
-        </p>
+      <div class="fragrance-grid">
+        <div class="fragrance-desc reveal">
+          <p>FEMME by VISTORIA opens with a shock of saffron and bergamot that refuses to whisper. At its heart, Bulgarian rose and oud resin collide in an accord that belongs to neither East nor West. The base lingers&hairsp;&mdash;&hairsp;agarwood, amber, and white musk&hairsp;&mdash;&hairsp;like a conversation you can&rsquo;t walk away from.</p>
+        </div>
 
-        <div class="notes-grid">
-          <div class="notes-group">
-            <h3>Top</h3>
-            <div class="note-tags">
-              <span class="note coral">Saffron</span>
-              <span class="note turquoise">Bergamot</span>
+        <div class="fragrance-notes reveal">
+          <div class="notes-row">
+            <span class="notes-label">Top</span>
+            <div class="notes-tags">
+              <span class="note" data-hover="coral">Saffron</span>
+              <span class="note" data-hover="turquoise">Bergamot</span>
             </div>
           </div>
-          <div class="notes-group">
-            <h3>Heart</h3>
-            <div class="note-tags">
-              <span class="note turquoise">Bulgarian Rose</span>
-              <span class="note coral">Oud Resin</span>
+          <div class="notes-row">
+            <span class="notes-label">Heart</span>
+            <div class="notes-tags">
+              <span class="note" data-hover="turquoise">Bulgarian Rose</span>
+              <span class="note" data-hover="coral">Oud Resin</span>
             </div>
           </div>
-          <div class="notes-group">
-            <h3>Base</h3>
-            <div class="note-tags">
-              <span class="note coral">Agarwood</span>
-              <span class="note turquoise">Amber</span>
-              <span class="note coral">White Musk</span>
+          <div class="notes-row">
+            <span class="notes-label">Base</span>
+            <div class="notes-tags">
+              <span class="note" data-hover="coral">Agarwood</span>
+              <span class="note" data-hover="turquoise">Amber</span>
+              <span class="note" data-hover="coral">White Musk</span>
             </div>
           </div>
         </div>
@@ -139,12 +191,11 @@
   <!-- ===== STORY ===== -->
   <section class="story" id="story">
     <div class="story-inner">
-      <span class="section-label light">THE STORY</span>
-      <div class="story-text">
-        <p class="reveal">Born between the souks of Arabia and the ateliers of Florence.</p>
-        <p class="reveal">Where ancient oud meets <em class="coral">Italian precision.</em></p>
-        <p class="reveal">Not a fragrance. <em class="turquoise">A declaration.</em></p>
-        <p class="reveal">We took the oldest material in perfumery&hairsp;—&hairsp;and made it modern.</p>
+      <blockquote class="story-quote reveal">Born between the souks of Arabia and the ateliers of Florence.</blockquote>
+      <div class="story-divider reveal"></div>
+      <div class="story-body reveal">
+        <p>FEMME by VISTORIA is a fragrance that refuses to belong to one world. It is built at the intersection of ancient Arabian perfumery and Italian precision&hairsp;&mdash;&hairsp;for women who move between cultures without apology.</p>
+        <p>It does not introduce. It announces.</p>
       </div>
     </div>
   </section>
@@ -152,20 +203,19 @@
   <!-- ===== RESERVE ===== -->
   <section class="reserve" id="reserve">
     <div class="reserve-inner reveal">
-      <span class="section-label">RESERVE</span>
-      <h2>Own the first edition.</h2>
+      <span class="reserve-label">First Edition</span>
+      <h2>Reserve Your Bottle of FEMME.</h2>
       <p class="reserve-price">AED 790</p>
-      <p class="reserve-size">100ml · Eau de Parfum</p>
-      <button class="btn btn-turquoise add-to-cart" data-product="oud-royale">Reserve Your Bottle</button>
-      <p class="reserve-note">Limited first edition. Once it's gone, it's gone.</p>
+      <button class="btn-dark add-to-cart" data-product="femme">Reserve Now</button>
+      <p class="reserve-note">Limited first edition. 500 bottles worldwide. Once it&rsquo;s gone, it&rsquo;s gone.</p>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <span class="footer-brand">OUD ROYALE FIRENZE</span>
-      <p class="footer-copy">&copy; 2026 Oud Royale Firenze. All rights reserved.</p>
+      <span class="footer-brand">VISTORIA</span>
+      <p class="footer-copy">&copy; 2026 Vistoria. All rights reserved.</p>
     </div>
   </footer>
 
@@ -173,7 +223,7 @@
   <div class="cart-overlay" id="cartOverlay"></div>
   <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
     <div class="cart-header">
-      <h2>YOUR CART</h2>
+      <h2>Your Cart</h2>
       <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
     </div>
     <div class="cart-items" id="cartItems"></div>
