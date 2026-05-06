@@ -389,18 +389,6 @@ a {
     linear-gradient(160deg, #D4A843 0%, #0D1F2D 100%);
 }
 
-.gallery-panel__label {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  font-style: italic;
-  font-size: 22px;
-  color: var(--ivory);
-  opacity: 0.7;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-  pointer-events: none;
-  user-select: none;
-}
 
 /* Info — right 45% */
 .product__info {
