@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FEMME by VISTORIA — Eau de Parfum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer__header">
+      <span class="cart-drawer__title">YOUR PRE-ORDER</span>
+      <button class="cart-drawer__close" id="cartClose" aria-label="Close cart">&#x2715;</button>
+    </div>
+    <div class="cart-drawer__items" id="cartItems">
+      <p class="cart-drawer__empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__total">
+        <span>TOTAL</span>
+        <span id="cartTotal">AED 0</span>
+      </div>
+      <button class="btn btn--full">PROCEED TO CHECKOUT</button>
+      <p class="cart-drawer__note">First edition · 500 bottles only · Ships Q3 2025</p>
+    </div>
+  </aside>
+
+  <!-- SECTION 1 — Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__logo">VISTORIA</div>
+    <nav class="nav__links" id="navLinks">
+      <a href="#product" class="nav__link">FRAGRANCE</a>
+      <a href="#story" class="nav__link">STORY</a>
+      <a href="#reserve" class="nav__link">PRE-ORDER</a>
+      <button class="nav__cart" id="cartBtn" aria-label="Open cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="nav__cart-badge" id="cartBadge">0</span>
+      </button>
+    </nav>
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#product" class="mobile-menu__link" data-close-menu>FRAGRANCE</a>
+    <a href="#story" class="mobile-menu__link" data-close-menu>STORY</a>
+    <a href="#reserve" class="mobile-menu__link" data-close-menu>PRE-ORDER</a>
+  </div>
+
+  <!-- SECTION 2 — Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__label reveal">FIRST DROP · LIMITED EDITION</p>
+      <h1 class="hero__title reveal">FEMME</h1>
+      <h2 class="hero__subtitle reveal">BY VISTORIA</h2>
+      <p class="hero__tagline reveal"><em>Where ancient Arabia meets the ateliers of Florence.</em></p>
+      <a href="#reserve" class="btn btn--hero reveal">PRE-ORDER NOW</a>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Marquee strip -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>FIRST LAUNCH <span class="sep">·</span> COMING SOON <span class="sep">·</span> RESERVE YOUR PIECE <span class="sep">·</span> FEMME BY VISTORIA <span class="sep">·</span> LIMITED TO 500 BOTTLES <span class="sep">·</span> </span>
+      <span>FIRST LAUNCH <span class="sep">·</span> COMING SOON <span class="sep">·</span> RESERVE YOUR PIECE <span class="sep">·</span> FEMME BY VISTORIA <span class="sep">·</span> LIMITED TO 500 BOTTLES <span class="sep">·</span> </span>
+      <span>FIRST LAUNCH <span class="sep">·</span> COMING SOON <span class="sep">·</span> RESERVE YOUR PIECE <span class="sep">·</span> FEMME BY VISTORIA <span class="sep">·</span> LIMITED TO 500 BOTTLES <span class="sep">·</span> </span>
+      <span>FIRST LAUNCH <span class="sep">·</span> COMING SOON <span class="sep">·</span> RESERVE YOUR PIECE <span class="sep">·</span> FEMME BY VISTORIA <span class="sep">·</span> LIMITED TO 500 BOTTLES <span class="sep">·</span> </span>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — Product -->
+  <section class="product" id="product">
+    <!-- Left: scroll gallery -->
+    <div class="product__gallery">
+      <div class="gallery-panel gallery-panel--1">
+        <div class="gallery-panel__label">View 01</div>
+      </div>
+      <div class="gallery-panel gallery-panel--2">
+        <div class="gallery-panel__label">View 02</div>
+      </div>
+      <div class="gallery-panel gallery-panel--3">
+        <div class="gallery-panel__label">View 03</div>
+      </div>
+      <div class="gallery-panel gallery-panel--4">
+        <div class="gallery-panel__label">View 04</div>
+      </div>
+    </div>
+
+    <!-- Right: sticky info -->
+    <div class="product__info">
+      <p class="product__label reveal">VISTORIA · FEMME · EAU DE PARFUM · 50ML</p>
+      <h2 class="product__name reveal">FEMME</h2>
+      <p class="product__tagline reveal"><em>A fragrance that belongs to neither East nor West.</em></p>
+
+      <hr class="divider reveal" />
+
+      <div class="notes reveal">
+        <div class="notes__row">
+          <span class="notes__layer">TOP</span>
+          <div class="notes__tags">
+            <span class="note-tag">Saffron</span>
+            <span class="note-tag">Bergamot</span>
+          </div>
+        </div>
+        <div class="notes__row">
+          <span class="notes__layer">HEART</span>
+          <div class="notes__tags">
+            <span class="note-tag">Bulgarian Rose</span>
+            <span class="note-tag">Oud Resin</span>
+          </div>
+        </div>
+        <div class="notes__row">
+          <span class="notes__layer">BASE</span>
+          <div class="notes__tags">
+            <span class="note-tag">Agarwood</span>
+            <span class="note-tag">Amber</span>
+            <span class="note-tag">White Musk</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider reveal" />
+
+      <p class="product__price-label reveal">PRE-ORDER LAUNCH PRICE</p>
+      <div class="product__pricing reveal">
+        <span class="product__price-old">AED 890</span>
+        <span class="product__price-new">AED 590</span>
+      </div>
+
+      <div class="quantity reveal">
+        <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">&#8722;</button>
+        <span class="qty-value" id="qtyValue">1</span>
+        <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">&#43;</button>
+      </div>
+
+      <button class="btn btn--full reveal" id="addToCart">ADD TO PRE-ORDER</button>
+      <p class="product__note reveal">First edition · 500 bottles only · Ships Q3 2025</p>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Second marquee strip -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>FIRST LAUNCH <span class="sep">·</span> COMING SOON <span class="sep">·</span> RESERVE YOUR PIECE <span class="sep">·</span> FEMME BY VISTORIA <span class="sep">·</span> LIMITED TO 500 BOTTLES <span class="sep">·</span> </span>
+      <span>FIRST LAUNCH <span class="sep">·</span> COMING SOON <span class="sep">·</span> RESERVE YOUR PIECE <span class="sep">·</span> FEMME BY VISTORIA <span class="sep">·</span> LIMITED TO 500 BOTTLES <span class="sep">·</span> </span>
+      <span>FIRST LAUNCH <span class="sep">·</span> COMING SOON <span class="sep">·</span> RESERVE YOUR PIECE <span class="sep">·</span> FEMME BY VISTORIA <span class="sep">·</span> LIMITED TO 500 BOTTLES <span class="sep">·</span> </span>
+      <span>FIRST LAUNCH <span class="sep">·</span> COMING SOON <span class="sep">·</span> RESERVE YOUR PIECE <span class="sep">·</span> FEMME BY VISTORIA <span class="sep">·</span> LIMITED TO 500 BOTTLES <span class="sep">·</span> </span>
+    </div>
+  </div>
+
+  <!-- SECTION 6 — Story -->
+  <section class="story" id="story">
+    <div class="story__inner">
+      <p class="story__label reveal">THE STORY</p>
+      <h2 class="story__headline reveal">Born between the souks of Arabia and the ateliers of Florence.</h2>
+      <div class="story__divider reveal"></div>
+      <p class="story__body reveal">FEMME by VISTORIA is a fragrance that refuses to belong to one world. Built for women who move between cultures without apology — where the ancient warmth of oud meets the precision of Italian perfumery.</p>
+      <p class="story__body reveal">This is not a scent you wear. It is a statement you make.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — Reserve banner -->
+  <section class="reserve" id="reserve">
+    <div class="reserve__inner">
+      <h2 class="reserve__headline reveal">500 Bottles. One Chance.</h2>
+      <p class="reserve__body reveal">FEMME is a limited first edition. Once the pre-order closes, production begins and this price will never return.</p>
+      <a href="#product" class="btn btn--reserve reveal">SECURE YOUR BOTTLE</a>
+    </div>
+  </section>
+
+  <!-- SECTION 8 — Footer -->
+  <footer class="footer">
+    <p class="footer__brand">VISTORIA</p>
+    <p class="footer__sub">FEMME · EAU DE PARFUM · FIRST EDITION</p>
+    <p class="footer__copy">© 2025 VISTORIA. All rights reserved. Dubai, UAE.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
