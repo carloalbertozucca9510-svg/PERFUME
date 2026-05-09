@@ -414,6 +414,7 @@ a {
   gap: 12px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 2;
 }
 
 .product-card__image:hover .product-card__overlay {
@@ -460,24 +461,37 @@ a {
   background: rgba(245, 239, 230, 0.85);
 }
 
-/* Out-of-stock permanent overlay */
-.product-card__oos {
+/* Out-of-stock: gray overlay via ::after */
+.product-card__image--oos::after {
+  content: '';
   position: absolute;
   inset: 0;
-  background: rgba(245, 239, 230, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(100, 100, 100, 0.4);
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Out-of-stock label pill — top-center */
+.product-card__oos {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .product-card__oos-label {
+  display: block;
   font-family: 'Jost', sans-serif;
   font-weight: 400;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--navy);
+  color: #fff;
+  background: var(--navy);
+  padding: 6px 16px;
+  white-space: nowrap;
 }
 
 .product-card__details {
