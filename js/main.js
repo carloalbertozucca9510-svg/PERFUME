@@ -55,7 +55,7 @@
 })();
 
 /* --- Cart State --- */
-const cart = { items: [], unitPrice: 590 };
+const cart = { items: [], unitPrice: 380 };
 
 function getCartTotal() {
   return cart.items.reduce((sum, item) => sum + item.qty * cart.unitPrice, 0);
