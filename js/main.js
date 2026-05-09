@@ -172,25 +172,28 @@ function renderCartItems() {
 
 /* --- Quick View Modal --- */
 (function initQuickViewModal() {
-  const overlay  = document.getElementById('qvOverlay');
-  const modal    = document.getElementById('qvModal');
-  const closeBtn = document.getElementById('qvClose');
-  const imageEl  = document.getElementById('qvImage');
-  const counter  = document.getElementById('qvCounter');
-  const prevBtn  = document.getElementById('qvPrev');
-  const nextBtn  = document.getElementById('qvNext');
-  const qvMinus  = document.getElementById('qvMinus');
-  const qvPlus   = document.getElementById('qvPlus');
-  const qvQtyEl  = document.getElementById('qvQtyValue');
-  const addBtn   = document.getElementById('qvAddToCart');
+  const overlay    = document.getElementById('qvOverlay');
+  const modal      = document.getElementById('qvModal');
+  const closeBtn   = document.getElementById('qvClose');
+  const imageEl    = document.getElementById('qvImage');
+  const counter    = document.getElementById('qvCounter');
+  const prevBtn    = document.getElementById('qvPrev');
+  const nextBtn    = document.getElementById('qvNext');
+  const qvMinus    = document.getElementById('qvMinus');
+  const qvPlus     = document.getElementById('qvPlus');
+  const qvQtyEl    = document.getElementById('qvQtyValue');
+  const addBtn     = document.getElementById('qvAddToCart');
+  const pricingEl  = modal ? modal.querySelector('.product__pricing') : null;
+  const quantityEl = modal ? modal.querySelector('.quantity') : null;
+  const noteEl     = modal ? modal.querySelector('.product__note') : null;
 
   if (!modal) return;
 
   const products = {
-    1: { name: 'SOLARE',  label: 'VISTORIA · SOLARE · EAU DE PARFUM · 50ML',  tagline: 'Sun-drenched citrus meets the Amalfi coast.' },
-    2: { name: 'FIRENZE', label: 'VISTORIA · FIRENZE · EAU DE PARFUM · 50ML', tagline: 'The quiet elegance of a Florentine garden.' },
-    3: { name: 'FEMME',   label: 'VISTORIA · FEMME · EAU DE PARFUM · 50ML',   tagline: 'A fragrance that belongs to neither East nor West.' },
-    4: { name: 'RAB',     label: 'VISTORIA · RAB · EAU DE PARFUM · 50ML',     tagline: 'Ancient oud, sacred smoke, desert night.' },
+    1: { name: 'SOLARE',  label: 'VISTORIA · SOLARE · EAU DE PARFUM · 50ML',  tagline: 'Sun-drenched citrus meets the Amalfi coast.',       outOfStock: true  },
+    2: { name: 'FIRENZE', label: 'VISTORIA · FIRENZE · EAU DE PARFUM · 50ML', tagline: 'The quiet elegance of a Florentine garden.',        outOfStock: true  },
+    3: { name: 'FEMME',   label: 'VISTORIA · FEMME · EAU DE PARFUM · 50ML',   tagline: 'A fragrance that belongs to neither East nor West.', outOfStock: false },
+    4: { name: 'RAB',     label: 'VISTORIA · RAB · EAU DE PARFUM · 50ML',     tagline: 'Ancient oud, sacred smoke, desert night.',           outOfStock: false },
   };
 
   const images = [
@@ -202,6 +205,7 @@ function renderCartItems() {
 
   let currentIdx = 0;
   let qvQty = 1;
+  let currentProduct = null;
 
   function setImage(idx) {
     currentIdx = ((idx % images.length) + images.length) % images.length;
@@ -211,10 +215,24 @@ function renderCartItems() {
   }
 
   function openModal(productNum) {
-    const p = products[productNum] || products[1];
-    modal.querySelector('.qv-details__name').textContent    = p.name;
-    modal.querySelector('.product__label').textContent      = p.label;
-    modal.querySelector('.product__tagline em').textContent = p.tagline;
+    currentProduct = products[productNum] || products[1];
+
+    modal.querySelector('.qv-details__name').textContent    = currentProduct.name;
+    modal.querySelector('.product__label').textContent      = currentProduct.label;
+    modal.querySelector('.product__tagline em').textContent = currentProduct.tagline;
+
+    if (currentProduct.outOfStock) {
+      pricingEl.style.display  = 'none';
+      quantityEl.style.display = 'none';
+      addBtn.textContent = 'REGISTER YOUR INTEREST';
+      noteEl.textContent = 'This fragrance is currently out of stock. Leave your details and we will notify you when it becomes available.';
+    } else {
+      pricingEl.style.display  = '';
+      quantityEl.style.display = '';
+      addBtn.textContent = 'ADD TO PRE-ORDER';
+      noteEl.textContent = 'First edition · 500 bottles only';
+    }
+
     currentIdx = 0;
     qvQty = 1;
     if (qvQtyEl) qvQtyEl.textContent = qvQty;
@@ -248,11 +266,15 @@ function renderCartItems() {
   });
 
   if (addBtn) addBtn.addEventListener('click', () => {
-    const existing = cart.items.find(i => i.name === 'FEMME');
+    if (currentProduct && currentProduct.outOfStock) {
+      closeModal();
+      return;
+    }
+    const existing = cart.items.find(i => i.name === currentProduct.name);
     if (existing) {
       existing.qty += qvQty;
     } else {
-      cart.items.push({ name: 'FEMME', qty: qvQty });
+      cart.items.push({ name: currentProduct.name, qty: qvQty });
     }
     renderCartItems();
     updateCartTotal();

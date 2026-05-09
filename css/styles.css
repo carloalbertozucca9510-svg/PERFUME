@@ -451,6 +451,35 @@ a {
   background: #162d3f;
 }
 
+.product-card__btn--interest {
+  background: var(--ivory);
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+.product-card__btn--interest:hover {
+  background: rgba(245, 239, 230, 0.85);
+}
+
+/* Out-of-stock permanent overlay */
+.product-card__oos {
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 239, 230, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.product-card__oos-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
 .product-card__details {
   display: flex;
   justify-content: space-between;
