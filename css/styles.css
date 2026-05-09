@@ -10,9 +10,9 @@
 }
 
 :root {
-  --teal:   #1B6B7B;
-  --amber:  #C67B2E;
-  --gold:   #D4A843;
+  --teal:   #2C5F6B;
+  --amber:  #B8975A;
+  --gold:   #C4A882;
   --ivory:  #F5EFE6;
   --navy:   #0D1F2D;
 }
@@ -68,16 +68,18 @@ a {
 }
 
 .btn--hero {
-  background: var(--navy);
+  background: transparent;
   color: var(--ivory);
-  padding: 16px 48px;
-  border: 1.5px solid transparent;
-  margin-top: 32px;
+  padding: 14px 40px;
+  border: 1px solid var(--ivory);
+  margin-top: 36px;
   font-weight: 300;
+  font-size: 10px;
   letter-spacing: 5px;
 }
 .btn--hero:hover {
-  border-color: var(--amber);
+  background: var(--ivory);
+  color: var(--navy);
 }
 
 .btn--full {
@@ -100,17 +102,17 @@ a {
 }
 
 .btn--reserve {
-  background: var(--ivory);
-  color: var(--navy);
-  border: 2px solid var(--navy);
-  padding: 18px 48px;
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid var(--ivory);
+  padding: 14px 48px;
   font-weight: 300;
   font-size: 10px;
   letter-spacing: 5px;
 }
 .btn--reserve:hover {
-  background: var(--navy);
-  color: var(--ivory);
+  background: var(--ivory);
+  color: var(--navy);
 }
 
 /* =====================================================
@@ -134,8 +136,8 @@ a {
 .nav__logo {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 8px;
+  font-size: 15px;
+  letter-spacing: 10px;
   text-transform: uppercase;
   color: var(--navy);
 }
@@ -277,40 +279,29 @@ a {
 .hero__label {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 8px;
   text-transform: uppercase;
-  color: #D4A843;
-  margin-bottom: 20px;
+  color: rgba(245, 239, 230, 0.6);
+  margin-bottom: 28px;
 }
 
 .hero__title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-style: italic;
-  font-size: clamp(90px, 12vw, 180px);
-  color: var(--amber);
-  line-height: 0.85;
-  letter-spacing: 0;
-  margin-bottom: 12px;
-}
-
-.hero__subtitle {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  font-style: italic;
-  font-size: clamp(22px, 3vw, 42px);
+  font-weight: 700;
+  font-size: clamp(52px, 7vw, 110px);
   color: var(--ivory);
-  letter-spacing: 8px;
-  margin-bottom: 20px;
+  letter-spacing: 4px;
+  line-height: 1.0;
+  margin-bottom: 24px;
 }
 
 .hero__tagline {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
   font-style: italic;
-  font-size: 15px;
-  color: rgba(245, 239, 230, 0.8);
+  font-size: 18px;
+  color: rgba(245, 239, 230, 0.7);
   letter-spacing: 1px;
 }
 
@@ -320,7 +311,7 @@ a {
 .marquee-strip {
   width: 100%;
   height: 52px;
-  background: var(--navy);
+  background: #1a1a1a;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -359,7 +350,7 @@ a {
 .collection {
   width: 100%;
   background: var(--ivory);
-  padding: 140px 80px;
+  padding: 160px 80px;
 }
 
 .collection__inner {
@@ -517,8 +508,8 @@ a {
 .product-card__name {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 2px;
+  font-size: 15px;
+  letter-spacing: 3px;
   color: var(--navy);
 }
 
@@ -598,7 +589,7 @@ a {
 .note-tag {
   font-family: 'Jost', sans-serif;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 300;
   border: 1.5px solid var(--navy);
   padding: 4px 12px;
   cursor: none;
@@ -683,7 +674,7 @@ a {
   justify-content: center;
   font-family: 'Jost', sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--navy);
   user-select: none;
 }
@@ -852,7 +843,7 @@ a {
    ===================================================== */
 .story {
   background: var(--navy);
-  padding: 180px 48px;
+  padding: 200px 48px;
 }
 
 .story__inner {
@@ -903,8 +894,8 @@ a {
    RESERVE BANNER
    ===================================================== */
 .reserve {
-  background: var(--amber);
-  padding: 120px 48px;
+  background: #1a1a1a;
+  padding: 140px 48px;
   text-align: center;
 }
 
@@ -914,7 +905,7 @@ a {
 }
 
 .reserve__headline {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
   font-style: italic;
   font-size: clamp(36px, 5vw, 72px);
@@ -939,7 +930,7 @@ a {
    ===================================================== */
 .footer {
   background: var(--navy);
-  padding: 80px 48px;
+  padding: 100px 48px;
   text-align: center;
 }
 
@@ -1213,7 +1204,7 @@ a {
   }
 
   .collection {
-    padding: 100px 32px;
+    padding: 120px 32px;
   }
   .collection__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1234,11 +1225,11 @@ a {
   }
 
   .story {
-    padding: 120px 24px;
+    padding: 140px 24px;
   }
 
   .reserve {
-    padding: 80px 24px;
+    padding: 100px 24px;
   }
 
   .cart-drawer {
