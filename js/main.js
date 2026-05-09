@@ -144,51 +144,117 @@ function renderCartItems() {
   if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 })();
 
-/* --- Quantity Selector (product page) --- */
-(function initQtySelector() {
-  const minus    = document.getElementById('qtyMinus');
-  const plus     = document.getElementById('qtyPlus');
-  const display  = document.getElementById('qtyValue');
-  if (!minus || !plus || !display) return;
+/* --- Product Grid: Add to Cart buttons --- */
+(function initProductGrid() {
+  function openCartDrawer() {
+    const cartDrawer  = document.getElementById('cartDrawer');
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (cartDrawer)  cartDrawer.classList.add('open');
+    if (cartOverlay) cartOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
-  let qty = 1;
-
-  minus.addEventListener('click', () => {
-    if (qty > 1) {
-      qty--;
-      display.textContent = qty;
-    }
-  });
-
-  plus.addEventListener('click', () => {
-    qty++;
-    display.textContent = qty;
-  });
-
-  /* --- Add to Cart --- */
-  const addBtn = document.getElementById('addToCart');
-  if (addBtn) {
-    addBtn.addEventListener('click', () => {
+  document.querySelectorAll('[data-add-to-cart]').forEach(btn => {
+    btn.addEventListener('click', () => {
       const existing = cart.items.find(i => i.name === 'FEMME');
       if (existing) {
-        existing.qty += qty;
+        existing.qty += 1;
       } else {
-        cart.items.push({ name: 'FEMME', qty });
+        cart.items.push({ name: 'FEMME', qty: 1 });
       }
       renderCartItems();
       updateCartTotal();
       updateCartBadge();
-
-      /* open cart drawer */
-      const cartDrawer  = document.getElementById('cartDrawer');
-      const cartOverlay = document.getElementById('cartOverlay');
-      if (cartDrawer) cartDrawer.classList.add('open');
-      if (cartOverlay) cartOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-
-      /* reset qty */
-      qty = 1;
-      display.textContent = qty;
+      openCartDrawer();
     });
+  });
+})();
+
+/* --- Quick View Modal --- */
+(function initQuickViewModal() {
+  const overlay  = document.getElementById('qvOverlay');
+  const modal    = document.getElementById('qvModal');
+  const closeBtn = document.getElementById('qvClose');
+  const imageEl  = document.getElementById('qvImage');
+  const counter  = document.getElementById('qvCounter');
+  const prevBtn  = document.getElementById('qvPrev');
+  const nextBtn  = document.getElementById('qvNext');
+  const qvMinus  = document.getElementById('qvMinus');
+  const qvPlus   = document.getElementById('qvPlus');
+  const qvQtyEl  = document.getElementById('qvQtyValue');
+  const addBtn   = document.getElementById('qvAddToCart');
+
+  if (!modal) return;
+
+  const images = [
+    '../images/product-1.jpeg',
+    '../images/product-2.jpeg',
+    '../images/product-3.jpeg',
+    '../images/product-4.jpeg',
+  ];
+
+  let currentIdx = 0;
+  let qvQty = 1;
+
+  function setImage(idx) {
+    currentIdx = ((idx % images.length) + images.length) % images.length;
+    imageEl.style.backgroundImage =
+      `url('${images[currentIdx]}'), linear-gradient(160deg, coral 0%, teal 100%)`;
+    counter.textContent = `${currentIdx + 1} / ${images.length}`;
   }
+
+  function openModal() {
+    currentIdx = 0;
+    qvQty = 1;
+    if (qvQtyEl) qvQtyEl.textContent = qvQty;
+    setImage(0);
+    modal.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-quick-view]').forEach(btn => {
+    btn.addEventListener('click', openModal);
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (overlay)  overlay.addEventListener('click', closeModal);
+
+  if (prevBtn) prevBtn.addEventListener('click', () => setImage(currentIdx - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => setImage(currentIdx + 1));
+
+  if (qvMinus) qvMinus.addEventListener('click', () => {
+    if (qvQty > 1) { qvQty--; qvQtyEl.textContent = qvQty; }
+  });
+  if (qvPlus) qvPlus.addEventListener('click', () => {
+    qvQty++; qvQtyEl.textContent = qvQty;
+  });
+
+  if (addBtn) addBtn.addEventListener('click', () => {
+    const existing = cart.items.find(i => i.name === 'FEMME');
+    if (existing) {
+      existing.qty += qvQty;
+    } else {
+      cart.items.push({ name: 'FEMME', qty: qvQty });
+    }
+    renderCartItems();
+    updateCartTotal();
+    updateCartBadge();
+    closeModal();
+    const cartDrawer  = document.getElementById('cartDrawer');
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (cartDrawer)  cartDrawer.classList.add('open');
+    if (cartOverlay) cartOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
 })();

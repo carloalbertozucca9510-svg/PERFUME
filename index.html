@@ -86,65 +86,65 @@
     </div>
   </div>
 
-  <!-- SECTION 4 — Product -->
-  <section class="product" id="product">
-    <!-- Left: scroll gallery -->
-    <div class="product__gallery">
-      <div class="gallery-panel gallery-panel--1"></div>
-      <div class="gallery-panel gallery-panel--2"></div>
-      <div class="gallery-panel gallery-panel--3"></div>
-      <div class="gallery-panel gallery-panel--4"></div>
-    </div>
+  <!-- SECTION 4 — Product Grid -->
+  <section class="collection" id="product">
+    <div class="collection__inner">
+      <h2 class="collection__heading reveal">The Collection</h2>
+      <div class="collection__grid">
 
-    <!-- Right: sticky info -->
-    <div class="product__info">
-      <p class="product__label reveal">VISTORIA · FEMME · EAU DE PARFUM · 50ML</p>
-      <h2 class="product__name reveal">FEMME</h2>
-      <p class="product__tagline reveal"><em>A fragrance that belongs to neither East nor West.</em></p>
-
-      <hr class="divider reveal" />
-
-      <div class="notes reveal">
-        <div class="notes__row">
-          <span class="notes__layer">TOP</span>
-          <div class="notes__tags">
-            <span class="note-tag">Saffron</span>
-            <span class="note-tag">Bergamot</span>
+        <div class="product-card">
+          <div class="product-card__image product-card__image--1">
+            <div class="product-card__overlay">
+              <button class="product-card__btn product-card__btn--quick" data-quick-view>QUICK VIEW</button>
+              <button class="product-card__btn product-card__btn--cart" data-add-to-cart>ADD TO CART</button>
+            </div>
+          </div>
+          <div class="product-card__details">
+            <span class="product-card__name">FEMME by VISTORIA</span>
+            <span class="product-card__price">AED 590</span>
           </div>
         </div>
-        <div class="notes__row">
-          <span class="notes__layer">HEART</span>
-          <div class="notes__tags">
-            <span class="note-tag">Bulgarian Rose</span>
-            <span class="note-tag">Oud Resin</span>
+
+        <div class="product-card">
+          <div class="product-card__image product-card__image--2">
+            <div class="product-card__overlay">
+              <button class="product-card__btn product-card__btn--quick" data-quick-view>QUICK VIEW</button>
+              <button class="product-card__btn product-card__btn--cart" data-add-to-cart>ADD TO CART</button>
+            </div>
+          </div>
+          <div class="product-card__details">
+            <span class="product-card__name">FEMME by VISTORIA</span>
+            <span class="product-card__price">AED 590</span>
           </div>
         </div>
-        <div class="notes__row">
-          <span class="notes__layer">BASE</span>
-          <div class="notes__tags">
-            <span class="note-tag">Agarwood</span>
-            <span class="note-tag">Amber</span>
-            <span class="note-tag">White Musk</span>
+
+        <div class="product-card">
+          <div class="product-card__image product-card__image--3">
+            <div class="product-card__overlay">
+              <button class="product-card__btn product-card__btn--quick" data-quick-view>QUICK VIEW</button>
+              <button class="product-card__btn product-card__btn--cart" data-add-to-cart>ADD TO CART</button>
+            </div>
+          </div>
+          <div class="product-card__details">
+            <span class="product-card__name">FEMME by VISTORIA</span>
+            <span class="product-card__price">AED 590</span>
           </div>
         </div>
+
+        <div class="product-card">
+          <div class="product-card__image product-card__image--4">
+            <div class="product-card__overlay">
+              <button class="product-card__btn product-card__btn--quick" data-quick-view>QUICK VIEW</button>
+              <button class="product-card__btn product-card__btn--cart" data-add-to-cart>ADD TO CART</button>
+            </div>
+          </div>
+          <div class="product-card__details">
+            <span class="product-card__name">FEMME by VISTORIA</span>
+            <span class="product-card__price">AED 590</span>
+          </div>
+        </div>
+
       </div>
-
-      <hr class="divider reveal" />
-
-      <p class="product__price-label reveal">PRE-ORDER LAUNCH PRICE</p>
-      <div class="product__pricing reveal">
-        <span class="product__price-old">AED 890</span>
-        <span class="product__price-new">AED 590</span>
-      </div>
-
-      <div class="quantity reveal">
-        <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">&#8722;</button>
-        <span class="qty-value" id="qtyValue">1</span>
-        <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">&#43;</button>
-      </div>
-
-      <button class="btn btn--full reveal" id="addToCart">ADD TO PRE-ORDER</button>
-      <p class="product__note reveal">First edition · 500 bottles only · Ships Q3 2025</p>
     </div>
   </section>
 
@@ -184,6 +184,86 @@
     <p class="footer__sub">FEMME · EAU DE PARFUM · FIRST EDITION</p>
     <p class="footer__copy">© 2025 VISTORIA. All rights reserved. Dubai, UAE.</p>
   </footer>
+
+  <!-- Quick View Modal -->
+  <div class="qv-overlay" id="qvOverlay"></div>
+  <div class="qv-modal" id="qvModal" role="dialog" aria-modal="true" aria-label="Quick View">
+    <button class="qv-modal__close" id="qvClose" aria-label="Close">&#x2715;</button>
+    <div class="qv-modal__body">
+
+      <div class="qv-carousel">
+        <div class="qv-carousel__image" id="qvImage"></div>
+        <button class="qv-carousel__arrow qv-carousel__arrow--prev" id="qvPrev" aria-label="Previous image">&#8592;</button>
+        <button class="qv-carousel__arrow qv-carousel__arrow--next" id="qvNext" aria-label="Next image">&#8594;</button>
+        <p class="qv-carousel__counter" id="qvCounter">1 / 4</p>
+      </div>
+
+      <div class="qv-details">
+        <p class="product__label">VISTORIA · FEMME · EAU DE PARFUM · 50ML</p>
+        <h2 class="qv-details__name">FEMME</h2>
+        <p class="product__tagline"><em>A fragrance that belongs to neither East nor West.</em></p>
+
+        <hr class="divider" />
+
+        <div class="notes">
+          <div class="notes__row">
+            <span class="notes__layer">TOP</span>
+            <div class="notes__tags">
+              <span class="note-tag">Saffron</span>
+              <span class="note-tag">Bergamot</span>
+            </div>
+          </div>
+          <div class="notes__row">
+            <span class="notes__layer">HEART</span>
+            <div class="notes__tags">
+              <span class="note-tag">Bulgarian Rose</span>
+              <span class="note-tag">Oud Resin</span>
+            </div>
+          </div>
+          <div class="notes__row">
+            <span class="notes__layer">BASE</span>
+            <div class="notes__tags">
+              <span class="note-tag">Agarwood</span>
+              <span class="note-tag">Amber</span>
+              <span class="note-tag">White Musk</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="product__pricing">
+          <span class="product__price-old">AED 890</span>
+          <span class="product__price-new">AED 590</span>
+        </div>
+
+        <div class="quantity">
+          <button class="qty-btn" id="qvMinus" aria-label="Decrease quantity">&#8722;</button>
+          <span class="qty-value" id="qvQtyValue">1</span>
+          <button class="qty-btn" id="qvPlus" aria-label="Increase quantity">&#43;</button>
+        </div>
+
+        <button class="btn btn--full" id="qvAddToCart">ADD TO PRE-ORDER</button>
+        <p class="product__note">First edition · 500 bottles only</p>
+
+        <div class="qv-delivery">
+          <div class="qv-delivery__row">
+            <span class="qv-delivery__icon">&#128666;</span>
+            <span>Estimated Delivery: 3-5 Days</span>
+          </div>
+          <div class="qv-delivery__row">
+            <span class="qv-delivery__icon">&#128230;</span>
+            <span>Free Shipping on orders over AED 500</span>
+          </div>
+          <div class="qv-delivery__row">
+            <span class="qv-delivery__icon">&#128205;</span>
+            <span>Dubai &amp; UAE Delivery Available</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
