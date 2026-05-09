@@ -186,6 +186,13 @@ function renderCartItems() {
 
   if (!modal) return;
 
+  const products = {
+    1: { name: 'SOLARE',  label: 'VISTORIA · SOLARE · EAU DE PARFUM · 50ML',  tagline: 'Sun-drenched citrus meets the Amalfi coast.' },
+    2: { name: 'FIRENZE', label: 'VISTORIA · FIRENZE · EAU DE PARFUM · 50ML', tagline: 'The quiet elegance of a Florentine garden.' },
+    3: { name: 'FEMME',   label: 'VISTORIA · FEMME · EAU DE PARFUM · 50ML',   tagline: 'A fragrance that belongs to neither East nor West.' },
+    4: { name: 'RAB',     label: 'VISTORIA · RAB · EAU DE PARFUM · 50ML',     tagline: 'Ancient oud, sacred smoke, desert night.' },
+  };
+
   const images = [
     '../images/product-1.jpeg',
     '../images/product-2.jpeg',
@@ -203,7 +210,11 @@ function renderCartItems() {
     counter.textContent = `${currentIdx + 1} / ${images.length}`;
   }
 
-  function openModal() {
+  function openModal(productNum) {
+    const p = products[productNum] || products[1];
+    modal.querySelector('.qv-details__name').textContent    = p.name;
+    modal.querySelector('.product__label').textContent      = p.label;
+    modal.querySelector('.product__tagline em').textContent = p.tagline;
     currentIdx = 0;
     qvQty = 1;
     if (qvQtyEl) qvQtyEl.textContent = qvQty;
@@ -220,7 +231,7 @@ function renderCartItems() {
   }
 
   document.querySelectorAll('[data-quick-view]').forEach(btn => {
-    btn.addEventListener('click', openModal);
+    btn.addEventListener('click', () => openModal(parseInt(btn.dataset.quickView, 10)));
   });
 
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
